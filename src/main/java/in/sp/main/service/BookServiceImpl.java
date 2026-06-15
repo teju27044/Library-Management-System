@@ -39,6 +39,8 @@ public class BookServiceImpl implements BookService {
             oldBook.setTitle(book.getTitle());
             oldBook.setAuthor(book.getAuthor());
             oldBook.setPrice(book.getPrice());
+            oldBook.setCategory(book.getCategory());
+            oldBook.setImageUrl(book.getImageUrl());
 
             return repository.save(oldBook);
         }
@@ -49,8 +51,26 @@ public class BookServiceImpl implements BookService {
     @Override
     public String deleteBook(int id) {
 
-        repository.deleteById(id);
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return "Book Deleted Successfully";
+        }
 
-        return "Book Deleted Successfully";
+        return "Book Not Found";
+    }
+
+    @Override
+    public List<Book> searchByTitle(String title) {
+        return repository.findByTitleContainingIgnoreCase(title);
+    }
+
+    @Override
+    public List<Book> searchByAuthor(String author) {
+        return repository.findByAuthorContainingIgnoreCase(author);
+    }
+
+    @Override
+    public List<Book> getBooksByCategory(String category) {
+        return repository.findByCategoryIgnoreCase(category);
     }
 }

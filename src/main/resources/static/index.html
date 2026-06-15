@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Library Management System</h1>
+</header>
+
+<div class="container">
+
+    <div class="search-section">
+
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="Search by Title..."
+        >
+
+        <button onclick="searchBooks()">
+            Search
+        </button>
+
+        <button onclick="loadBooks()">
+            Show All
+        </button>
+
+    </div>
+
+    <h2>Add New Book</h2>
+
+    <form id="bookForm">
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Book Title"
+            required
+        >
+
+        <input
+            type="text"
+            id="author"
+            placeholder="Author Name"
+            required
+        >
+
+        <input
+            type="number"
+            id="price"
+            placeholder="Price"
+            required
+        >
+
+        <input
+            type="text"
+            id="category"
+            placeholder="Category"
+            required
+        >
+
+        <input
+            type="text"
+            id="imageUrl"
+            placeholder="Image URL"
+            required
+        >
+
+        <button type="submit">
+            Add Book
+        </button>
+
+    </form>
+
+    <h2>Book List</h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+
+        </thead>
+
+        <tbody id="bookTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

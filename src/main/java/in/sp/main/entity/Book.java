@@ -1,39 +1,44 @@
 package in.sp.main.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "book")
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String title;
 
     private String author;
 
-    private double price;
+    private Double price;
+
+    private String category;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 
     public Book() {
-
     }
 
-    public Book(int id, String title, String author, double price) {
+    public Book(Integer id, String title, String author, Double price,
+                String category, String imageUrl) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.price = price;
+        this.category = category;
+        this.imageUrl = imageUrl;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,11 +58,27 @@ public class Book {
         this.author = author;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
